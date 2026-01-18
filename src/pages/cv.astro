@@ -1,0 +1,132 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TimeLineElement from "../components/cv/TimeLine.astro";
+---
+
+<BaseLayout title="Resume" sideBarActiveItemID="cv">
+  {/* ===================== PROFILE ===================== */}
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Profile</div>
+  </div>
+
+  <div class="mb-10 text-justify text-lg leading-relaxed">
+    I’m a Los Angeles–based software engineer and founder building <b>Ascendit</b>, a production iOS app that uses computer
+    vision to turn climbing wall photos into logged routes and community activity. I own the full stack end-to-end — SwiftUI
+    mobile UI/UX, distributed backend services, and GPU-backed ML inference — and iterate directly with climbers to ship
+    features that work in real gyms. I’m looking for software engineering roles where I can ship reliable systems, scale
+    product experiences, and grow quickly on a strong team.
+  </div>
+
+  {/* ===================== EDUCATION ===================== */}
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Education</div>
+  </div>
+
+  <div class="time-line-container grid gap-4 mb-10">
+    <TimeLineElement
+      title="University of Southern California — B.S. Computer Science"
+      subtitle="May 2025 · Los Angeles, CA · Coursework: Algorithms, Operating Systems, Computer Networking, NLP, iOS App Development"
+    />
+  </div>
+
+  {/* ===================== EXPERIENCE ===================== */}
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Experience</div>
+  </div>
+
+  <div class="time-line-container mb-10">
+    <TimeLineElement
+      title="Founder & Full-Stack Engineer — Ascendit Bouldering"
+      subtitle="May 2025 · Present · Los Angeles, CA"
+    >
+      <ul class="list-disc mx-6 grid gap-2">
+        <li>
+          Built and operate a production iOS app that enables universal indoor climbing route tracking by converting
+          user-submitted wall photos into logged routes using computer vision.
+        </li>
+        <li>
+          Designed an end-to-end pipeline spanning SwiftUI capture/upload, backend orchestration, and ML inference, persisting
+          results to a global database for route discovery and user progress tracking.
+        </li>
+        <li>
+          Architected a distributed backend using Django and PostgreSQL with containerized services and async processing to
+          support real-world usage and growth.
+        </li>
+        <li>
+          Implemented GPU-backed inference via a FastAPI microservice (Detectron2-based hold detection), including operational
+          debugging and reliability improvements for variable network conditions.
+        </li>
+        <li>
+          Validated the product in real gyms through in-person onboarding; currently supports data across <b>4 gyms</b> with
+          <b>10 active users</b> generating <b>~50 weekly scans</b>.
+        </li>
+      </ul>
+    </TimeLineElement>
+
+    <TimeLineElement
+      title="Full-Stack Projects — Mobile, Web, and Automation"
+      subtitle="2023 · 2025 · Los Angeles, CA"
+    >
+      <ul class="list-disc mx-6 grid gap-2">
+        <li>
+          Built multiple end-to-end applications across mobile and web, focusing on clean UX, data modeling, and scalable API
+          design.
+        </li>
+        <li>
+          Developed backend services and tooling (APIs, import scripts, migrations, and operational utilities) to support
+          real-world workflows and deployments.
+        </li>
+        <li>
+          Created automation and desktop tooling in Java/Python to streamline repetitive tasks and improve iteration speed.
+        </li>
+      </ul>
+    </TimeLineElement>
+
+    <TimeLineElement
+      title="Interview Preparation — Algorithms & Systems"
+      subtitle="2025 · Present · Self-directed"
+    >
+      <ul class="list-disc mx-6 grid gap-2">
+        <li>
+          Consistently practicing core patterns (graphs, DP, intervals, heaps, greedy) with an emphasis on writing clean,
+          testable solutions and explaining tradeoffs clearly.
+        </li>
+        <li>
+          Applying systems thinking from production work on Ascendit to architectural discussions (reliability, scalability,
+          observability, and performance).
+        </li>
+      </ul>
+    </TimeLineElement>
+  </div>
+
+  {/* ===================== SKILLS ===================== */}
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Skills</div>
+  </div>
+
+  <ul class="list-disc md:columns-5 columns-2 mx-6 gap-x-10">
+    <li>Swift</li>
+    <li>SwiftUI</li>
+    <li>Python</li>
+    <li>Java</li>
+    <li>TypeScript / JavaScript</li>
+
+    <li>Django</li>
+    <li>FastAPI</li>
+    <li>GraphQL</li>
+    <li>REST APIs</li>
+    <li>PostgreSQL</li>
+
+    <li>Docker / Docker Compose</li>
+    <li>Nginx</li>
+    <li>DigitalOcean</li>
+    <li>AWS (EC2)</li>
+    <li>Git</li>
+
+    <li>Computer Vision</li>
+    <li>Detectron2</li>
+    <li>PyTorch</li>
+    <li>Async/background processing</li>
+    <li>Performance & reliability debugging</li>
+  </ul>
+</BaseLayout>
