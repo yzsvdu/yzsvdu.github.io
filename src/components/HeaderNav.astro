@@ -1,0 +1,31 @@
+---
+const { title, navActiveItemID } = Astro.props;
+const activeClass = "bg-base-300";
+---
+
+<nav class="sticky top-0 z-50 bg-base-100/80 backdrop-blur border-b border-base-300">
+    <div class="flex justify-center">
+        <div class="navbar w-full max-w-[1100px] px-4">
+
+            <!-- Left: Brand -->
+            <div class="flex-1">
+                <a href="/" class="text-xl font-semibold hover:opacity-80 transition">
+                    {title}
+                </a>
+            </div>
+
+            <!-- Center / Right: Menu -->
+            <ul class="menu menu-horizontal px-1 gap-1">
+                <li><a id="home" href="/">Home</a></li>
+                <li><a id="projects" href="/projects">Projects</a></li>
+                <li><a id="blog" href="/blog/">Blog</a></li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<script define:vars={{ navActiveItemID, activeClass }}>
+    const el = document.getElementById(navActiveItemID);
+    if (el) el.classList.add(activeClass);
+</script>

@@ -1,41 +1,68 @@
 ---
-const { title, img, desc, url, badge, tags, target = "_blank" } = Astro.props;
 import { Image } from "astro:assets";
+
+const {
+  title,
+  img,            // small thumbnail/logo (optional)
+  bannerImg,      // wide screenshots image (optional)
+  desc,
+  url,
+  badge,
+  tags,
+  target = "_blank",
+} = Astro.props;
+
 const tag_url = url.split("/").slice(0, -1).join("/") + "/tag";
+const rel = target === "_blank" ? "noopener noreferrer" : undefined;
 ---
 
-<div
-  class="rounded-lg bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[102%]"
->
-  <a href={url} target={target}>
-    <div class="hero-content flex-col md:flex-row">
-      {
-        img && (
-          <Image
-            src={img}
-            width={750}
-            height={422}
-            format="webp"
-            alt={title}
-            class="max-w-full md:max-w-[13rem] rounded-lg"
-          />
-        )
-      }
-      <div class="grow w-full">
-        <h1 class="text-xl font-bold">
-          {title}
-          {badge && <div class="badge badge-secondary mx-2">{badge}</div>}
-        </h1>
-        <p class="py-1 text-1xl">{desc}</p>
-        <div class="card-actions justify-end">
-          {
-            tags &&
-              tags.map((tag) => (
-                <a href={`${tag_url}/${tag}`} class="badge badge-outline">
-                  {tag}
-                </a>
-              ))
-          }
+<div class="rounded-lg bg-base-100 border border-base-200 transition ease-in-out hover:shadow-xl hover:scale-[102%] overflow-hidden">
+  <a href={url} target={target} rel={rel} class="block">
+    <div class="p-4 md:p-5">
+      <div class="flex flex-col md:flex-row gap-4 md:gap-6 items-start">
+        {img && (
+            <div class="shrink-0">
+              <Image
+                  src={img}
+                  width={220}
+                  height={220}
+                  format="webp"
+                  alt={`${title} thumbnail`}
+                  class="w-full md:w-[10rem] rounded-lg"
+              />
+            </div>
+        )}
+
+        <div class="grow w-full">
+          <div class="flex items-center flex-wrap gap-2">
+            <h3 class="text-xl font-bold leading-snug">{title}</h3>
+            {badge && <span class="badge badge-secondary">{badge}</span>}
+          </div>
+
+          {desc && <p class="mt-1 text-sm md:text-base opacity-90">{desc}</p>}
+
+          {bannerImg && (
+              <div class="mt-3 w-full">
+                <Image
+                    src={bannerImg}
+                    width={1400}
+                    height={500}
+                    format="webp"
+                    alt={`${title} screenshots`}
+                    class="w-full h-auto rounded-md border border-base-300"
+                />
+              </div>
+          )}
+
+          {tags && (
+              <div class="mt-3 flex flex-wrap gap-2 justify-end">
+                {tags.map((tag) => (
+                    <a href={`${tag_url}/${tag}`} class="badge badge-outline">
+                      {tag}
+                    </a>
+                ))}
+              </div>
+          )}
         </div>
       </div>
     </div>
