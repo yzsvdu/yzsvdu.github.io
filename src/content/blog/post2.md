@@ -3,6 +3,7 @@ title: "Behind the Scenes: Building Real-Time Route Tracking for Indoor Climbing
 description: "A behind-the-scenes look at how Ascendit uses computer vision, mobile design, and a distributed backend to turn climbing wall photos into shared, trackable projects in real time."
 pubDate: "Jan 17 2026"
 heroImage: "/pipeline.png"
+tags: ["code", "database", "ransac", "graphs", "affine"]
 ---
 Indoor climbing gyms are constantly changing. Routes are reset, holds are moved, and entire walls can look completely different from one week to the next. Any system that tries to track climbs in this environment has to deal with one big challenge: the data is always in motion.
 
